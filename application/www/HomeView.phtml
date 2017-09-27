@@ -1,0 +1,36 @@
+<?php if($listPost == null){ ?>
+    <div class="nothingToShow"><h1 class="noPost">No post to show</h1></div>
+<?php }
+else {
+    foreach ($listPost as $unPost) { ?>
+        <table class="table table-striped  table-bordered">
+            <tr>
+                <th colspan="2"><?= $unPost['Title']; ?></th>
+            </tr>
+            <tr>
+                <td>
+                    <small>Post in category: <span class="styleCat"><?= $unPost['Name'] ?></span></small>
+                    <br><br>
+                    <?php if (strlen($unPost['Contents']) > 100) { ?>
+                        <p><?= substr($unPost['Contents'], 0, 100) . '...'; ?> </p>
+                        <p><a class="ShowCase" href="<?= $requestUrl ?>/showPost?postId=<?= $unPost["Id"]; ?>">Lire la
+                                suite</a></p>
+
+                    <?php } else { ?>
+                        <p><?= $unPost['Contents']; ?> </p>
+                        <p><a class="ShowCase" href="<?= $requestUrl ?>/showPost?postId=<?= $unPost["Id"]; ?>">Lire la
+                                suite</a></p>
+
+                    <?php } ?>
+
+                </td>
+            </tr>
+            <?php $date = date_create($unPost['CreationTimestamp']); ?>
+            <tr>
+                <td colspan="2">Created by <span
+                        class="styleCat"><?= $unPost['FirstName'] . " " . $unPost['LastName']; ?></span> at <span
+                        class="styleCat"><?= $date->format('d/m/Y à H:i'); ?></td>
+            </tr>
+        </table>
+    <?php }
+} ?>

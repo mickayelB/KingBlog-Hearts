@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog</title>
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/styles.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+
+</head>
+<body>
+
+<!-- En-tête commune -->
+<header>
+    <div id="title-header">
+        <h1>Kingblog Hearts</h1>
+        <nav>
+            <ul>
+                <li><a href="<?= $requestUrl ?>">Accueil</a></li>
+                <li><a href="<?= $requestUrl ?>/addPost">Ajout post</a></li>
+                <li><a href="<?= $requestUrl ?>/admin">Admin</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<!-- Interface utilisateur -->
+
+
+<main>
+    <div id="notice" class="notice">
+        <?php if($flashBag->hasMessages()){
+            $allFlashBag = $flashBag->fetchMessages();
+            foreach ($allFlashBag as $unFlashBag) { ?>
+                <p><?= $unFlashBag; ?></p>
+            <?php }
+        } ?>
+    </div>
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template']; ?>
+</main>
+
+<!-- Pied de page commun -->
+<footer>
+    <small>
+        <p>Blog for the Kingdom Hearts fans</p>
+    </small>
+</footer>
+
+
+<!-- Librairie jQuery -->
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- JavaScript de l'application -->
+<script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+<!-- Code principal JavaScript de l'application -->
+<script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>

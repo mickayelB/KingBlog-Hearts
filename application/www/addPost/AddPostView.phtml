@@ -1,0 +1,33 @@
+
+<form method="post" action="<?= $requestUrl; ?>/addPost" class="form-horizontal">
+    <fieldset>
+        <legend>Création post</legend>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Your title">
+        </div>
+        <div class="form-group">
+            <label for="contents">Contents</label>
+            <textarea id="contents" name="contents" class="form-control" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <select id="author" name="author" class="form-control">
+                <?php foreach ($authors as $oneAuthor) { ?>
+                    <option value="<?= $oneAuthor['Id']; ?>"><?= htmlspecialchars($oneAuthor['FirstName'])." ".htmlspecialchars($oneAuthor['LastName']); ?></option>
+                <?php }?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category" class="form-control">
+                <?php foreach ($categories as $oneCategory) { ?>
+                    <option value="<?= $oneCategory['Id']; ?>"><?= htmlspecialchars($oneCategory['Name']); ?></option>
+                <?php }?>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" id="sub" class="btn btn-success" value="Submit">
+        </div>
+    </fieldset>
+</form>

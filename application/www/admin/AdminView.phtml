@@ -1,0 +1,33 @@
+<?php if ($listPost == null) { ?>
+    <div class="nothingToShow"><h1 class="noPost">No post to manage</h1></div>
+<?php }
+else { ?>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Date</th>
+            <th>Admin</th>
+        </tr>
+        <?php foreach ($listPost as $unPost) { ?>
+            <tr>
+                <td><?= $unPost['Title']; ?></td>
+                <?php if (strlen($unPost['Contents']) > 100){ ?>
+                    <td><?= substr($unPost['Contents'], 0, 100).'...'; ?> </td>
+                <?php }
+                else { ?>
+                    <td><?= $unPost['Contents']; ?> </td>
+                <?php }
+                $date = date_create($unPost['CreationTimestamp']); ?>
+                <td><?= $date->format('d/m/Y à H:i'); ?></td>
+                <td>
+                    <form method="post" action="<?= $requestUrl; ?>/admin">
+                        <input type="submit" name="deletePost" value="Delete" class="btn btn-danger">
+                        <input type="hidden" name="id_delete" value="<?= $unPost['Id']; ?>">
+                    </form>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+<?php } ?>

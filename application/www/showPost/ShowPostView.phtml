@@ -1,0 +1,52 @@
+<a href="<?= $requestUrl; ?>">Retour</a>
+
+<table class="table table-striped  table-bordered test">
+    <tr>
+        <th colspan="2"><?= $onePost['Title']; ?></th>
+    </tr>
+    <tr>
+        <td><small>Post in category: <span class="styleCat"><?= $onePost['Name'] ?></span></small><br><br>
+            <p> <?= $onePost['Contents']; ?> </p>
+        </td>
+    </tr>
+    <?php $date = date_create($onePost['CreationTimestamp']); ?>
+    <tr>
+        <td colspan="2">Created by <span class="styleCat"><?= $onePost['FirstName']." ".$onePost['LastName']; ?></span> at <span class="styleCat"><?= $date->format('d/m/Y à H:i'); ?></td>
+    </tr>
+</table>
+
+
+
+<?php
+
+foreach ($comments as $index => $oneComment) {
+
+    $date = date_create($oneComment['CreationTimestamp']); ?>
+    <div class="comment-section">
+        <p><span class="styleCat"><?= $oneComment['NickName'].'</span> a écrit le <span class="styleCat">'.$date->format('d/m/Y à H:i'); ?></span></p>
+        <p><?= $oneComment['Contents']; ?></p>
+        <form method="post" action="<?= $requestUrl; ?>/showPost/deleteComment">
+            <input type="hidden" name="deleteComment" value="<?= $oneComment['Id']; ?>">
+            <input type="hidden" name="postId" value="<?= $onePost['Id']; ?>">
+            <input type="submit" name="commentId" value="Delete" class="btn btn-danger">
+        </form>
+    </div>
+<?php } ?>
+
+<form method="post" action="<?= $requestUrl; ?>/showPost/addComment" class="form-horizontal">
+    <fieldset>
+        <legend>Comment Section</legend>
+        <div class="form-group">
+            <label for="pseudo">Pseudo</label>
+            <input type="text" id="pseudo" name="pseudo" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea name="comment" rows="6" placeholder="Your comment here..." class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="addComment" value="Add" class="btn btn-success">
+        </div>
+        <input type="hidden" name="postId" value="<?= $onePost['Id']; ?>">
+    </fieldset>
+</form>

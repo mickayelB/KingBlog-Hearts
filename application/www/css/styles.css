@@ -1,0 +1,132 @@
+ html, body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  word-wrap: break-word;
+  background-image: url('../images/kh.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 135px;
+  padding-bottom: 20px;
+}
+
+header {
+  background-color: rgba(218, 160, 174, 0.8);
+  background-size: cover;
+  background-position: center;
+  /*background-attachment: fixed;*/
+  position: fixed;
+  width: 100%;
+}
+
+#title-header {
+  padding: 30px 0;
+  background-color: goldenrod;
+  opacity: 0.8;
+  text-align: center;
+}
+
+p {
+}
+
+h1 {
+  margin: 0;
+  /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 30px;
+}
+
+li a {
+  color: purple;
+}
+
+li a:hover {
+  color: #dc143c;
+}
+
+.form-horizontal {
+  max-width: 45%;
+  margin: 0 auto;
+}
+
+.form-horizontal .form-group {
+  text-align: center;
+}
+
+.form-control {
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+  padding: 120px 0;
+  background-color: goldenrod;
+}
+
+legend {
+  color: goldenrod;
+}
+
+.styleCat {
+  font-style: italic;
+}
+
+td{
+  color: goldenrod;
+}
+
+th:hover {
+  background-color: goldenrod;
+}
+
+td:hover {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.ShowCase {
+  float: right;
+  color: orangered;
+}
+
+
+th {
+  color: #dc143c;
+}
+
+ .notice
+ {
+   /* structure */
+   margin-bottom: 2em;
+
+   /* presentation */
+   background-color: rgba(218, 165, 32, 0.33);
+   border: 1px solid goldenrod;
+   border-radius: 6px;
+   color: goldenrod;
+   font-size: 1.33em;
+   text-align: center;
+ }
+
+ .comment-section {
+   color: goldenrod;
+ }
+
+ .noPost {
+   color: goldenrod;
+   text-align: center;
+ }
+
+.nothingToShow{
+  background-color: rgba(218, 165, 32, 0.33);
+  border: 1px solid goldenrod;
+  border-radius: 6px;
+  font-size: 1.33em;
+  margin-top: 10px;
+}
